@@ -31,15 +31,32 @@ public class ItisCodeMapper {
         }
     }
     //vehicleState 로 ITIS 코드 결정
-    public static Integer getVehicleStateITISCode(String vehicleState) {
+    public static Integer getAttributeITISCode(String vehicleState) {
         // 해당 차량 상태에 유효한 ITIS 코드가 없으면 null을 반환합니다.
         switch (vehicleState) {
+            //vehicle_state
             case "moving":
                 return ItisCodes.STOP_AND_GO_TRAFFIC;
             case "stopped":
                 return ItisCodes.STOPPED_VEHICLE;
+
+            /*case "rider_state.with_rider":
+                return ItisCodes.PEDESTRIAN_ON_ROAD;
+            case "rider_state.without_rider":
+                return ItisCodes.PEDESTRIAN_ON_ROAD;
+
+            case "human_state.moving":
+                return ItisCodes.PEDESTRIAN_ON_ROAD;
+            case "human_state.standing":
+                return ItisCodes.PEDESTRIAN_ON_ROAD;
+            case "human_state.sitting":
+                return ItisCodes.PEDESTRIAN_ON_ROAD;
+            case "human_state.lying_down":
+                return ItisCodes.PEDESTRIAN_ON_ROAD;*/
+
             default:
                 return null; // 이 차량 상태에 유효한 ITIS 코드가 없음을 나타냅니다.
         }
     }
+
 }
